@@ -21,6 +21,16 @@ Hello, {{.}}!<br><br>
 <br>
 {{/username}}
 
+{{#message}}
+<h1>{{author}}: {{text}}</h1>
+{{#isMe}}
+<form action="/delete-message" method="post">
+    <input type="hidden" name="id" value="{{id}}" />
+    <button type="submit">Delete</button>
+</form>
+{{/isMe}}
+{{/message}}
+
 {{#messages}}
 <a href="/?replyId={{id}}">{{author}}: {{text}}</a><br>
 {{/messages}}
